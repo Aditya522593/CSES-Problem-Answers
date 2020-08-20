@@ -1,0 +1,19 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    long long t,max_people = 0, curr_people = 0;
+    cin>>t;
+    vector<pair<int, bool>> arr;
+    while(t--){
+        long long a,b;
+        cin>> a >> b;
+        arr.push_back(make_pair(a, true));
+		arr.push_back(make_pair(b, false));
+    }
+    sort(arr.begin(), arr.end());
+	for (int i = 0; i < arr.size(); i++){
+	    curr_people += arr[i].second ? 1 : -1;
+		max_people = max(max_people, curr_people);
+	}
+	cout << max_people;
+}
